@@ -25,7 +25,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="pt-BR" suppressHydrationWarning>
         <head />
         <body
           className={cn(
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <SiteBlob />
-              <div className="flex-1">{children}S</div>
+              <div className="flex-1">{children}</div>
               <SiteFooter />
             </div>
           </Providers>

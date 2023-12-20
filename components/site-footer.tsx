@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 
+
 export function SiteFooter() {
   return (
     <footer className="border-t">
@@ -18,6 +19,7 @@ export function SiteFooter() {
             </div>
           ))}
         </nav>
+
         <Link
           href="https://www.fullstack.so"
           className="mt-10 block text-center text-xs leading-5"
