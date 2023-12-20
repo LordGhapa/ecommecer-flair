@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import { Description } from "@radix-ui/react-toast"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -10,7 +11,11 @@ import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {
-  title:siteConfig.name
+  title: siteConfig.name,
+  description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 interface RootLayoutProps {
@@ -28,9 +33,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <div className="relative flex min-h-screen flex-col">
-            <div className="flex-1">{children}</div>
-          </div>
+          <Providers>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <SiteBlob />
+              <div className="flex-1">{children}S</div>
+              <SiteFooter />
+            </div>
+          </Providers>
         </body>
       </html>
     </>
