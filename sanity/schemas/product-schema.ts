@@ -1,9 +1,5 @@
 import { defineField, defineType } from "sanity";
 
-
-
-
-
 export const product = defineType({
   name: "fair-product",
   title: "Fair-Products",
@@ -17,7 +13,7 @@ export const product = defineType({
     {
       name: "slug",
       title: "Slug",
-      type: "string",
+      type: "slug",
       options: {
         source: "name",
       },

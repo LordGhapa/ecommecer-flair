@@ -12,11 +12,7 @@ import { ProductSort } from "@/components/product-sort"
 interface Props {}
 
 export default async function Page() {
-  try {
-    await seedSanityData()
-  } catch (error) {
-    console.log(error)
-  }
+
   return (
     <div>
       <div className="px-4 pt-20 text-center">
