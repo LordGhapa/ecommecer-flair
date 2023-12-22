@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { useEffect } from "react"
@@ -17,6 +18,11 @@ export function CheckoutSession({ customerDetails }: Props) {
       clearCart()
     }
   }, [customerDetails])
+  useEffect(() => {
+    if (customerDetails) {
+      clearCart()
+    }
+  }, [])
 
   if (!customerDetails) {
     return (
@@ -37,7 +43,7 @@ export function CheckoutSession({ customerDetails }: Props) {
       </h1>
       <h3 className="mt-8 text-2xl leading-7">
         Obrigado
-   {/* { customerDetails?.name &&  (  <span className="font-extrabold">{customerDetails?.name}</span>!)} */}
+        {/* { customerDetails?.name &&  (  <span className="font-extrabold">{customerDetails?.name}</span>!)} */}
       </h3>
       <p className="mt-8">
         Verifique o seu Email{" "}
