@@ -41,12 +41,12 @@ export function CartItems() {
             <Image
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(600, 750)
+                shimmer(200, 200)
               )}`}
               src={urlForImage(product.images[0]).url()}
               alt={"alt"}
-              width={0}
-              height={0}
+              width={200}
+              height={200}
               className="h-24 w-24 rounded-md border-2 border-gray-200 object-cover object-center dark:border-gray-800 sm:h-48 sm:w-48"
             />
           </div>
