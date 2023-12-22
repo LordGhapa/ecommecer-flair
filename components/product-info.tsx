@@ -27,32 +27,32 @@ export function ProductInfo({ product }: Props) {
 
 
   const { toast } = useToast()
-  function addToCart() {
-    const item = {
-      ...product,
-      _id: product._id + selectedSize,
-      id: product._id + selectedSize,
-      product_data: {
-        size: selectedSize,
-      },
-    }
-    // item["_id"] = `${item["_id"]}-size-${selectedSize}`
+    function addToCart() {
+      const item = {
+        ...product,
+        _id: product._id + selectedSize,
+        id: product._id + selectedSize,
+        product_data: {
+          size: selectedSize,
+        },
+      }
+      // item["_id"] = `${item["_id"]}-size-${selectedSize}`
 
-    // isInCart ? incrementItem(item.id) : addItem(item)
-    addItem(item)
-    toast({
-      title: `${item.name} (${getSizeName(selectedSize)})`,
-      description: `produto adicionado`,
-      action: (
-        <Link href="/cart">
-          <Button variant={"link"} className="gap-x-2 whitespace-nowrap">
-            <ShoppingCart />
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-        </Link>
-      ),
-    })
-  }
+      // isInCart ? incrementItem(item.id) : addItem(item)
+      addItem(item)
+      toast({
+        title: `${item.name} (${getSizeName(selectedSize)})`,
+        description: `produto adicionado`,
+        action: (
+          <Link href="/cart">
+            <Button variant={"link"} className="gap-x-2 whitespace-nowrap">
+              <ShoppingCart />
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </Link>
+        ),
+      })
+    }
 
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">

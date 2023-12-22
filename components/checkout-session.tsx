@@ -6,7 +6,7 @@ import Stripe from "stripe"
 import { useShoppingCart } from "use-shopping-cart"
 
 interface Props {
-  customerDetails: Stripe.Checkout.Session.CustomerDetails | null
+  customerDetails?: Stripe.Checkout.Session.CustomerDetails | null | boolean
 }
 
 export function CheckoutSession({ customerDetails }: Props) {
@@ -36,14 +36,14 @@ export function CheckoutSession({ customerDetails }: Props) {
         Compra concluída com sucesso!
       </h1>
       <h3 className="mt-8 text-2xl leading-7">
-        Obrigado, <span className="font-extrabold">{customerDetails.name}</span>
-        !
+        Obrigado
+   {/* { customerDetails?.name &&  (  <span className="font-extrabold">{customerDetails?.name}</span>!)} */}
       </h3>
       <p className="mt-8">
-        Verifique o seu Email
-        <span className="mx-1 font-extrabold text-indigo-500">
-          {customerDetails.email}
-        </span>{" "}
+        Verifique o seu Email{" "}
+        {/* {customerDetails?.email &&( <span className="mx-1 font-extrabold text-indigo-500">
+          {customerDetails?.email}
+        </span>)} */}
         para sua nota fiscal
       </p>
     </>

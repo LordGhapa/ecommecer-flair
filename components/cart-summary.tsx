@@ -1,16 +1,12 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Loader2 } from "lucide-react";
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
+import { useState } from "react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { Loader2 } from "lucide-react"
+import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
 
-
-
-import { Button } from "@/components/ui/button";
-
-
-
-
+import { Button } from "@/components/ui/button"
 
 export function CartSummary() {
   const {
@@ -27,18 +23,21 @@ export function CartSummary() {
   const shippingAmount = cartCount! > 0 ? 500 : 0
   const totalAmount = totalPrice! + shippingAmount
 
+  const router = useRouter()
+
   async function onCheckout() {
-    setIsLoading(true)
-    const response = await fetch("/api/checkout", {
-      method: "POST",
-      body: JSON.stringify(cartDetails),
-    })
-    const data = await response.json()
-    const result =await redirectToCheckout(data.id)
-    if (result?.error) {
-      console.error(result)
-    }
-    setIsLoading(false)
+    // setIsLoading(true)
+    // const response = await fetch("/api/checkout", {
+    //   method: "POST",
+    //   body: JSON.stringify(cartDetails),
+    // })
+    // const data = await response.json()
+    // const result = await redirectToCheckout(data.id)
+    // if (result?.error) {
+    //   console.error(result)
+    // }
+    // setIsLoading(false)
+    console.log("haaa")
   }
 
   return (
@@ -72,10 +71,12 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
-        <Button disabled={isDisabled} onClick={onCheckout} className="w-full">
-          {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          {isLoading ? "Carregando..." : "Continuar"}
-        </Button>
+        <Link href="/success">
+          <Button disabled={isDisabled} onClick={onCheckout} className="w-full">
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {isLoading ? "Carregando..." : "Continuar"}
+          </Button>
+        </Link>
       </div>
     </section>
   )

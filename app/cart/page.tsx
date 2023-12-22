@@ -12,7 +12,7 @@ export default function Page() {
         <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
           <section aria-labelledby="cart-heading" className="lg:col-span-7">
             <h2 id="cart-heading" className="sr-only">
-              Items in your shopping cart
+              Items no seu Carrinho
             </h2>
 
             <CartItems/>
