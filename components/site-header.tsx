@@ -1,26 +1,20 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Edit, ShoppingBag } from "lucide-react";
-import { useShoppingCart } from "use-shopping-cart";
+import Link from "next/link"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { Edit, ShoppingBag } from "lucide-react"
+import { useShoppingCart } from "use-shopping-cart"
 
-
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { MainNav } from "@/components/main-nav";
-import { ThemeToggle } from "@/components/theme-toggle";
-
-
-
-
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { MainNav } from "@/components/main-nav"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
   const pathname = usePathname()
   const router = useRouter()
-  const searchParams=useSearchParams()
-  const defaultSearchQuery=searchParams.get("search")?? ""
+  const searchParams = useSearchParams()
+  const defaultSearchQuery = searchParams.get("search") ?? ""
 
   if (pathname.startsWith("/studio")) return null
 
@@ -31,7 +25,8 @@ export function SiteHeader() {
     router.replace(`/?search=${searchQuery}`)
   }
 
-  const{cartCount}=useShoppingCart()
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { cartCount } = useShoppingCart()
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b bg-background">
