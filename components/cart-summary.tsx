@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { Loader2 } from "lucide-react"
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
+import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
 
-import { Button } from "@/components/ui/button"
+
+
+import { Button } from "@/components/ui/button";
+
+
+
+
 
 export function CartSummary() {
   const {
@@ -15,6 +21,7 @@ export function CartSummary() {
     cartDetails,
     cartCount,
     redirectToCheckout,
+    clearCart
   } = useShoppingCart()
 
   const [isLoading, setIsLoading] = useState(false)
@@ -37,7 +44,9 @@ export function CartSummary() {
     //   console.error(result)
     // }
     // setIsLoading(false)
-    console.log("haaa")
+    clearCart()
+    console.log("Limpo");
+
   }
 
   return (
@@ -71,9 +80,9 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
-        <a href="/success" target={"_self"}>
+        <a href="/success" >
           <Button disabled={isDisabled}
-          //  onClick={onCheckout}
+           onClick={onCheckout}
             className="w-full">
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {isLoading ? "Carregando..." : "Continuar"}
