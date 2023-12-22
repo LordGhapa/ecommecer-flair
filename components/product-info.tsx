@@ -18,6 +18,8 @@ export function ProductInfo({ product }: Props) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   const { addItem, cartDetails, incrementItem } = useShoppingCart()
   const isInCart = !!cartDetails?.[product._id]
+ 
+
   const { toast } = useToast()
   function addToCart() {
     const item = {

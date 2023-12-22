@@ -18,6 +18,6 @@ export function getSizeName(value: string) {
     case "xl":
       return "X-Large"
     case "one-size":
-      return "One Size"
+      return "Único"
   }
 }
