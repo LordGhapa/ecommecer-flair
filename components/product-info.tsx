@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { ArrowRight, ShoppingCart } from "lucide-react"
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
+import { useState } from "react";
+import Link from "next/link";
+import { ArrowRight, ShoppingCart } from "lucide-react";
+import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
 
-import { SanityProduct } from "@/config/inventory"
-import { getSizeName } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
+
+
+import { SanityProduct } from "@/config/inventory";
+import { getSizeName } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+
+
+
+
 
 interface Props {
   product: SanityProduct
@@ -18,17 +24,22 @@ export function ProductInfo({ product }: Props) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   const { addItem, cartDetails, incrementItem } = useShoppingCart()
   const isInCart = !!cartDetails?.[product._id]
- 
+
 
   const { toast } = useToast()
   function addToCart() {
     const item = {
       ...product,
+      _id: product._id + selectedSize,
+      id: product._id + selectedSize,
       product_data: {
         size: selectedSize,
       },
     }
-    isInCart ? incrementItem(item.id) : addItem(item)
+    // item["_id"] = `${item["_id"]}-size-${selectedSize}`
+
+    // isInCart ? incrementItem(item.id) : addItem(item)
+    addItem(item)
     toast({
       title: `${item.name} (${getSizeName(selectedSize)})`,
       description: `produto adicionado`,

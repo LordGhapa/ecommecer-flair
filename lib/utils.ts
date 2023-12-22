@@ -8,15 +8,15 @@ export function cn(...inputs: ClassValue[]) {
 export function getSizeName(value: string) {
   switch (value) {
     case "xs":
-      return "X-Small"
+      return "XS"
     case "s":
-      return "Small"
+      return "S"
     case "m":
-      return "Medium"
+      return "M"
     case "l":
-      return "Large"
+      return "L"
     case "xl":
-      return "X-Large"
+      return "XL"
     case "one-size":
       return "Único"
   }
