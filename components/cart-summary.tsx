@@ -71,7 +71,7 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
-        <Link href="/success">
+        <Link href="/success" target={"_self"}>
           <Button disabled={isDisabled} onClick={onCheckout} className="w-full">
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {isLoading ? "Carregando..." : "Continuar"}
